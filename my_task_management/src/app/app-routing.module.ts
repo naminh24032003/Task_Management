@@ -1,0 +1,6 @@
+// const routes: Routes = [
+//   { path: '', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule) },
+//   { path: 'users', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule) },
+//   { path: 'auth', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) },
+//   { path: '**', redirectTo: '' }
+// ];
