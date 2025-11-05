@@ -1,0 +1,39 @@
+<div class="container">
+  <header class="header">
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#FF6B9D" />
+        <path d="M2 17L12 22L22 17" fill="#5B8DEF" />
+        <path d="M2 12L12 17L22 12" fill="#FFC845" />
+      </svg>
+      <span class="logo-text">ClickUp</span>
+    </div>
+    <nav class="nav">
+      <button class="nav-link">Contact Sales</button>
+      <button class="nav-link">Login</button>
+      <button class="btn-signup">Sign Up</button>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <h1 class="hero-title">
+      The everything app, <span class="hero-title-light">for work</span>
+    </h1>
+    <p class="hero-subtitle">
+      One app for projects, knowledge, conversations and more.
+    </p>
+    <p class="hero-subtitle">
+      Get more done, faster—together.
+    </p>
+    <button class="cta-button">
+      Get started. It's FREE!
+    </button>
+    <p class="cta-note">Free forever. No credit card.</p>
+  </main>
+
+  <section class="companies">
+    <div class="company-logo" *ngFor="let logo of companyLogos">
+      <span class="company-name">{{ logo }}</span>
+    </div>
+  </section>
+</div>
