@@ -1,9 +1,9 @@
 package com.example.demo.entity;
 
-import com.example.demo.entity.BaseEntity;
-
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -12,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User  extends BaseEntity {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +24,14 @@ public class User  extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @Column(unique = true)
+    @Column(unique = true, length = 150)
     private String email;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id")
+    )
+    @Column(name = "role")
+    private Set<String> roles = new HashSet<>();
 }
