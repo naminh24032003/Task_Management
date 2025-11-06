@@ -23,7 +23,7 @@ public class UserService implements UserInterface {
     public List<UserResponseDto> getAllUsers() {
         return repo.findAll()
                 .stream()
-                .map(user -> new UserResponseDto(user.getId(), user.getUsername(), user.getEmail()))
+                .map(user -> new UserResponseDto(user.getId(), user.getUsername(), user.getEmail(), user.getRoles()))
                 .collect(Collectors.toList());
     }
 

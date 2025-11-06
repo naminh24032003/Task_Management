@@ -5,6 +5,7 @@ import io.jsonwebtoken.security.Keys;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ public class JwtUtil {
     private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private final long expiration = 1000 * 60 * 60; 
 
-    public String generateToken(String username) {
+    public String generateToken(String username, Set<String> roles) {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())

@@ -11,7 +11,7 @@ import com.example.demo.modules.users.service.implement.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("users")
 public class UserController {
 
     private final UserService service;
