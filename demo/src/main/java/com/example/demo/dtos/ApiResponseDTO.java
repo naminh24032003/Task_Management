@@ -1,22 +1,19 @@
 package com.example.demo.dtos;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
 import java.time.LocalDateTime;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ApiResponseDTO<T> {
     private LocalDateTime timestamp;
     private int status;
     private String message;
     private T data;
-
-    public ApiResponseDTO(int status, String message, T data) {
-        this.timestamp = LocalDateTime.now();
-        this.status = status;
-        this.message = message;
-        this.data = data;
-    }
-
-    public LocalDateTime getTimestamp() { return timestamp; }
-    public int getStatus() { return status; }
-    public String getMessage() { return message; }
-    public T getData() { return data; }
 }

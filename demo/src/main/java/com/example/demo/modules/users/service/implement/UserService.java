@@ -34,7 +34,7 @@ public class UserService implements UserInterface {
         user.setEmail(dto.getEmail());
         user.setPassword(dto.getPassword()); 
         User saved = repo.save(user);
-        return new UserResponseDto(saved.getId(), saved.getUsername(), saved.getEmail());
+        return new UserResponseDto(saved.getId(), saved.getUsername(), saved.getEmail(), saved.getRoles());
     }
 
     @Override
