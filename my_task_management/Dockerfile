@@ -17,7 +17,8 @@ RUN npm run build -- --configuration=production
 FROM nginx:stable-alpine
 
 # Copy build output to Nginx html folder
-COPY --from=builder /app/dist/your-app-name /usr/share/nginx/html
+# Thay 'your-app-name' bằng tên thư mục build thực tế
+COPY --from=builder /app/dist/my_task_management /usr/share/nginx/html
 
 # Copy custom Nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
