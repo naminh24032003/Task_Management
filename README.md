@@ -1,115 +1,133 @@
-# Task Management Web Application
+Task Management là ứng dụng quản lý công việc với đầy đủ tính năng đăng nhập, phân quyền và quản lý task.
+Hệ thống gồm:
 
-Demo Website: **[https://taskmanagement-two-kappa.vercel.app](https://taskmanagement-two-kappa.vercel.app)**
+Frontend: Angular 17+
 
----
+Backend: Golang (Go kit microservice)
 
-## 🚀 Overview
+Database: PostgreSQL
 
-Features
-✅ Core Features
+Backend được viết theo kiến trúc clean + Go kit, dễ mở rộng, dễ bảo trì, hiệu năng cao.
 
-    User Authentication: Login / Register
-    
-    JWT Authentication for secure sessions
-    
-    Role-based Access Control: Admin, User, etc.
-    
-    Task Management: Create, Update, Delete tasks
-    
-    Responsive and Clean UI built with Angular
+✅ Tính năng chính
+🔐 Authentication & Authorization
 
-✅ Frontend (Angular) Optimizations
+Đăng nhập / Đăng ký người dùng
 
-    Lazy loading modules for faster initial load
-    
-    Pre-rendered static routes to improve SEO and performance
-    
-    Reactive forms with validation
-    
-    State management with RxJS / Services
-    
-    Optimized bundle size with Angular CLI production build
-    
-    Routing Guards for secure access based on roles
+JWT Authentication
 
-✅ Backend (Spring Boot) Optimizations
+Phân quyền (Admin / User)
 
-    Spring Security with JWT for authentication
-    
-    Role-based authorization at endpoint level
-    
-    PostgreSQL database for reliable data storage
-    
-    Service & Repository layer for clean architecture
-    
-    Exception handling with global @ControllerAdvice
-    
-    Password encryption with BCrypt
-    
-    H2 / PostgreSQL Profiles for dev / prod environment
+Middleware xác thực JWT
 
-✅ Deployment
+Angular Route Guards
 
-    Frontend deployed on Vercel
-    
-    Backend deployed cloud server
-    
-    Environment variables for secure configuration
+📋 Quản lý Task
 
-✅ Technology Stack
+Tạo task
 
-    Frontend: Angular, TypeScript, HTML5, CSS3
-    
-    Backend: Spring Boot, Java 25, Spring Data JPA
-    
-    Database: PostgreSQL
-    
-    Authentication: JWT, BCrypt
-    
-    Deployment: Vercel (FE),  for BE
+Cập nhật task
 
----
+Xóa task
 
-## 🛠️ Tech Stack
+Giao task cho user
 
-### **Frontend**
+Tìm kiếm / lọc task
 
-* Angular 17+
-* TypeScript
-* SCSS
-* Angular Router
-* Angular Forms
-* Vercel Hosting
+UI responsive, tốc độ nhanh
 
-### **Backend**
+🖥️ Frontend – Angular
+Công nghệ sử dụng
 
-* Spring Boot 3
-* Spring Security + JWT
-* JPA / Hibernate
-* PostgreSQL Database
+Angular 17+
 
+TypeScript
 
----
+SCSS
 
+Angular Router
 
-## 🧪 Testing
+Reactive Forms
 
-Test authentication with tools like:
-* Jasmine + Karma
-* Postman
-* Thunder Client (VSCode)
+RxJS Services
 
----
+Tối ưu
 
+Lazy loading modules
 
-## ✨ Author
+Pre-rendering tăng tốc load
 
-**Anh Minh**
-Fullstack Developer – Angular & Spring Boot
+State management đơn giản bằng RxJS
 
----
+Build production tối ưu
 
-## ❤️ Support
+⚙️ Backend – Golang (Go kit)
+Công nghệ sử dụng
 
-If you need help improving UI, backend, or adding new modules, feel free to ask!
+Go 1.22+
+
+Go kit (service, endpoint, transport)
+
+Gorilla Mux
+
+SQLX
+
+PostgreSQL
+
+JWT Authentication
+
+BCrypt password hashing
+
+Kiến trúc Go kit
+/cmd/server/main.go   → Khởi động HTTP server
+/service              → Business logic
+/endpoints            → Endpoint Go kit
+/transport/http       → Handler HTTP + middleware
+/repository           → PostgreSQL layer
+/model                → Struct dữ liệu
+/jwt                  → Token utilities
+
+Điểm mạnh Backend
+
+Phân lớp rõ ràng theo Go kit
+
+Middleware: JWT verify, Logging, Recovery
+
+Repository tách biệt, dễ đổi DB
+
+Bcrypt hashing bảo mật
+
+Có thể scale thành microservice
+
+🗄️ Database – PostgreSQL
+
+Các bảng chính:
+
+users (username, email, password, role)
+
+tasks (title, description, status, assignee_id, timestamps)
+
+Hỗ trợ migration qua:
+
+goose
+
+hoặc chạy file SQL thủ công
+
+🚀 Triển khai
+Frontend (Angular)
+
+Deploy trên Vercel
+
+Config API trong environment.ts
+
+Backend (Go kit)
+
+Deploy được trên:
+
+Linux server
+
+Docker
+
+VPS
+
+Render / Railway / Fly.io
